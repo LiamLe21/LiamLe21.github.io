@@ -111,3 +111,8 @@ main {
 h2, h3 {
     margin: 20px;
 }
+li {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+
+}

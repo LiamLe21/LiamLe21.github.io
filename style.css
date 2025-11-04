@@ -21,6 +21,11 @@
     0% {left: -2500px;}
     100% {left: 0px;}
 }
+@keyframes hop {
+    0% {top: 0px;}
+    50% {top: -15px;}
+    100% {top: 0px;}
+}
 body {
     background: rgb(194, 136, 228);
     color: rgb(134, 0, 0);
@@ -69,6 +74,10 @@ h1 {
     padding: 0 10px;
 }
 
+.nav-li li:hover {
+    color:blueviolet;
+}
+
 a {
     text-decoration: none;
     color: #fff;
@@ -99,16 +108,25 @@ main {
     width: 200px;
     height: 200px;
     position: relative;
+
+}
+.sidebar-img:hover {
+    animation-name: hop;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
 }
 
 .content {
     flex: 1;
     padding: 15px;
 }
+#interests li:hover {
+    color:blueviolet;
+}
 
 /* interests section styles */
 #interests {
-    border: 4px rgb(25, 0, 48) ridge;
+    border: 4px rgb(77, 0, 150) ridge;
     padding: 20px;
     margin-top: 20px;
 }

@@ -75,7 +75,11 @@ h1 {
 }
 
 .nav-li li:hover {
+<<<<<<< HEAD
     color:blueviolet;
+=======
+    color: blueviolet;
+>>>>>>> 1613fb81c9680d8bc474abfe848ea1bea01f9d7f
 }
 
 a {

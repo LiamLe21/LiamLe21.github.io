@@ -41,9 +41,9 @@ $(function () {
 
 
     // TODO 3 - Create Collectables
-    createCollectable("steve", 725,400)
-    createCollectable("steve", 200,500)
-    createCollectable("steve", 300,600)
+    createCollectable("sigma", 725,460)
+    createCollectable("sigma", 200,560)
+    createCollectable("sigma", 500,560)
 
 
     

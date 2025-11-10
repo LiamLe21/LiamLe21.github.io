@@ -57,7 +57,7 @@
         // moves the Box to a new position on the screen along the X-Axis
         function moveBoxTo(newPositionX,newPositionY) {
           box.css("left", newPositionX);
-          box.css("top"), newPositionY
+          box.css("top", newPositionY);
         }
 
         // changes the text displayed on the Box
@@ -75,7 +75,7 @@
         var boxY = 0;
         var NUM = 0;
         var speedX = 10;
-        var speedY = 10;
+        var speedY = 3;
 
         /**
          * This Function will be called 20 times/second.
@@ -126,6 +126,7 @@
           boxX = 0
           NUM += 1
           speedX += 5;
+          speedY += 1
 
 
 

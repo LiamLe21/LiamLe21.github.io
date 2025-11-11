@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <title>Bouncing Box</title>
+    <style href = "sigmastyle.css"></style>
     <script src="jquery.min.js"></script>
     <style>
       .box {
         width: 70px;
         height: 70px;
-        background-color: teal;
+        background-color: rgb(13, 0, 128);
         font-size: 300%;
         text-align: center;
         user-select: none;
@@ -20,7 +21,7 @@
       }
 
       .board {
-        height: 100vh;
+        background-color: black;
       }
     </style>
     <!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -34,22 +35,22 @@
       (function () {
         "use strict";
         /* global jQuery */
-
+        var width = window.innerWidth
+        var height = window.innerHeight
         //////////////////////////////////////////////////////////////////
         /////////////////// SETUP DO NOT DELETE //////////////////////////
         //////////////////////////////////////////////////////////////////
-
         var box = jQuery(".box"); // reference to the HTML .box element
         var board = jQuery(".board"); // reference to the HTML .board element
-        var boardWidth = board.width(); // the maximum X-Coordinate of the screen
-
+        var boardWidth = window.innerWidth; // the maximum X-Coordinate of the screen
+        var boardHeight = window.innerHeight;
         // update the boardWidth variable when the window is resized
         jQuery(window).on("resize", function () {
-          boardWidth = board.width();
+          boardWidth = window.innerWidth;
         });
 
         // Every 50 milliseconds, call the update Function (see below)
-        setInterval(update, 50);
+        setInterval(update, 5);
 
         // Every time the box is clicked, call the handleBoxClick Function (see below)
         box.on("click", handleBoxClick);
@@ -74,8 +75,8 @@
         var boxX = 0;
         var boxY = 0;
         var NUM = 0;
-        var speedX = 10;
-        var speedY = 3;
+        var speedX = 1;
+        var speedY = 0.33;
 
         /**
          * This Function will be called 20 times/second.
@@ -84,9 +85,10 @@
          */
         function update() {
           changeBoxText(NUM)
-        
+          var boardWidth = window.innerWidth; // the maximum X-Coordinate of the screen
+          var boardHeight = window.innerHeight;
           boxX += speedX;
-          if (boxX >= 600) {
+          if (boxX >= boardWidth-70) {
             if (speedX >0) {
               speedX*=-1
             }
@@ -97,7 +99,7 @@
             }
           }
           boxY += speedY;
-          if (boxY >= 600) {
+          if (boxY >= boardHeight - 75) {
             if (speedY >0) {
               speedY*=-1
             }
@@ -123,14 +125,27 @@
          * - move the box to the left side of the screen.
          */
         function handleBoxClick() {
-          boxX = 0
+          //var raiseX = random(0.1,2);
+          //var raiseY = random(0.1,2);
+          boxX = (boardWidth-70)/2
+          boxY = (boardHeight - 75)/2
           NUM += 1
-          speedX += 5;
-          speedY += 1
-
-
-
-
+          if (speedX <0) {
+            speedX*=-1
+            speedX += 0.8;
+            speedX*=-1
+          }
+          else {
+            speedX += 0.8;
+          }
+          if (speedY <0) {
+            speedY*=-1
+            speedY += 0.8;
+            speedY*=-1
+          }
+          else {
+            speedY += 0.8;
+          }
         }
 
 
